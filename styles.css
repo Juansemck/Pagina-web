@@ -16,7 +16,13 @@ header {
 }
     
 body {
-	
+    .contenedor {
+        display: grid; /* Activar grid */
+        grid-template-columns: repeat(3, 1fr); /* Tres columnas iguales */
+        gap: 20px; /* Espacio entre las casillas */
+        padding: 20px; /* Espacio alrededor del contenedor */
+        background-color: #eee; /* Fondo del contenedor */
+    }
 
     background-color:beige;
     color: black;
