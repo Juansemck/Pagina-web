@@ -8,6 +8,36 @@
     list-style: none; 
 }
 
+    .container{
+        display: flex;
+    } 
+
+    .logo{ 
+        width: 200px;
+        height: 200px;    
+
+    }
+
+    p{
+        margin-left: 20px;
+        margin-right: 20px;
+    }   
+
+    .container{
+        display: flex;
+    } 
+
+    .logo{ 
+        width: 200px;
+        height: 200px;    
+
+    }
+
+    p{
+        margin-left: 20px;
+        margin-right: 20px;
+    }   
+
 header {
     background-color: red; /* Color de fondo rojo */
     color: white; /* Color del texto en blanco */
