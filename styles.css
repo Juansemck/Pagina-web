@@ -24,6 +24,15 @@ body {
         background-color: #eee; /* Fondo del contenedor */
     }
 
+        /* Estilo para las casillas */
+        .casilla {
+            border: 2px solid black; /* Borde negro */
+            padding: 15px; /* Espaciado interno */
+            background-color: #f4f4f4; /* Fondo claro */
+            text-align: center; /* Centrar contenido */
+            border-radius: 10px; /* Bordes redondeados */
+        }
+
     background-color:beige;
     color: black;
     font-family : "Montserrat";
