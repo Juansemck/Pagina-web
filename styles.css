@@ -7,11 +7,15 @@
     text-decoration: none;
     list-style: none; 
 }
- 
+
 body {
+	
+
     background-color:#512525;
     color: black;
-    font-family: "Montserrat", sans-serif;
+    font-family : "Montserrat";
+    
+
     
 }
 
