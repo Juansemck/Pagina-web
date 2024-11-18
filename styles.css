@@ -23,14 +23,42 @@
         margin-right: 20px;
     }   
 
+    .container{
+        display: flex;
+    } 
+
+    .logo{ 
+        width: 200px;
+        height: 200px;    
+
+    }
+
+    p{
+        margin-left: 20px;
+        margin-right: 20px;
+    }   
+
+header {
+    background-color: red; /* Color de fondo rojo */
+    color: white; /* Color del texto en blanco */
+    padding: 20px;
+    text-align: center;
+}
+    
 body {
-	
+    .contenedor {
+        display: grid; /* Activar grid */
+        grid-template-columns: repeat(3, 1fr); /* Tres columnas iguales */
+        gap: 20px; /* Espacio entre las casillas */
+        padding: 20px; /* Espacio alrededor del contenedor */
+        background-color: #eee; /* Fondo del contenedor */
+    }
 
     background-color:beige;
     color: black;
     font-family : "Montserrat";
     
-
+    
     
 }
 
