@@ -77,8 +77,18 @@
     <script>
         function enviarCorreo(plan) {
           const destinatario = "tucorreo@ejemplo.com";
-          const asunto = `Selección de Plan: ${plan}`;
-          const cuerpo = `Hola, estoy interesado en el plan "${plan}". Por favor, contáctenme para más detalles.`;
+          const asunto = `Servicio de Boda ${plan}`;
+          const cuerpo = `El servicio de Boda estaria con un valor de: * DJ: 2 UNIDADES POR VALOR DE $140.0000 
+          * MESEROS 1 UNIDAD POR VALOR DE $50.000
+          * LUCES 1 UNIDAD POR VALOR DE $1.200.000
+          * MARIACHIS 0
+          PARA UN TOTAL DE $1.390.000
+          
+          
+          Esperamos su Pronta respuesta
+          Coordialmente
+          
+          Eventos.com.`;
           
          
           const mailtoLink = `mailto:${destinatario}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
