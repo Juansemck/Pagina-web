@@ -64,5 +64,28 @@
     </main>
 
     <script src="bodas.js"></script> <!-- Vinculación del JavaScript -->
+
+
+    <table>
+        <tbody>
+          <tr>
+            <td>Cotización</td>
+            <td><button onclick="enviarCorreo('Básico')">Cotizar</button></td>
+          </tr>
+        </tbody>
+      </table>
+    <script>
+        function enviarCorreo(plan) {
+          const destinatario = "tucorreo@ejemplo.com";
+          const asunto = `Selección de Plan: ${plan}`;
+          const cuerpo = `Hola, estoy interesado en el plan "${plan}". Por favor, contáctenme para más detalles.`;
+          
+         
+          const mailtoLink = `mailto:${destinatario}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+    
+         
+          window.location.href = mailtoLink;
+        }
+      </script>
 </body>
 </html>
