@@ -44,6 +44,11 @@ header {
     padding: 20px;
     text-align: center;
 }
+
+button{
+    color: #eee;
+    text-align: center
+}
     
 body {
     .contenedor {
