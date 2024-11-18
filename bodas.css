@@ -1,10 +1,12 @@
+/* Estilo general */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #dd4747;
 }
 
+/* Header */
 header {
     background-color: #0056b3;
     color: white;
@@ -12,14 +14,17 @@ header {
     text-align: center;
 }
 
+/* Hero (imagen de fondo) */
 .hero {
-    background-image: url('background.jpg'); /* Cambia a la imagen de fondo deseada */
+    background-image: url('../img/background.jpg'); /* Cambia a la ruta correcta de tu imagen */
     background-size: cover;
+    background-position: center;
     color: white;
     padding: 50px;
     text-align: center;
 }
 
+/* Servicios */
 .services {
     padding: 20px;
 }
@@ -32,6 +37,7 @@ header {
     padding: 15px;
 }
 
+/* Selector de cantidad */
 .quantity-selector {
     display: flex;
     align-items: center;
@@ -50,35 +56,10 @@ header {
     font-size: 18px;
 }
 
+/* Total */
 .total {
     text-align: center;
     margin: 20px;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
-}
-
-.total span {
-    color: #0056b3; /* Color que coincide con el encabezado */
-}
-
-h1, h2, h3, h4 {
-    margin: 0;
-    padding: 10px 0;
-}
-
-h2 {
-    font-size: 28px;
-}
-
-h3 {
-    font-size: 24px;
-}
-
-h4 {
-    font-size: 20px;
-}
-
-p {
-    font-size: 16px;
-    line-height: 1.5;
 }
