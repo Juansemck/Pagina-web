@@ -6,6 +6,45 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="bodas.css"> <!-- Vinculación del CSS -->
     <title>eventos.com - Tu mejor opción para eventos.</title>
+    <style>
+        .service {
+            margin-bottom: 20px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+        /* Estilos para el botón */
+        #cotizarBtn {
+            background-color: #28a745; /* Color verde */
+            color: white; /* Texto blanco */
+            border: none; /* Sin borde */
+            padding: 10px 20px; /* Espaciado */
+            font-size: 16px; /* Tamaño de fuente */
+            cursor: pointer; /* Cursor de mano */
+            border-radius: 5px; /* Bordes redondeados */
+            margin-top: 20px; /* Margen superior */
+        }
+        #cotizarBtn:hover {
+            background-color: #218838; /* Color verde más oscuro al pasar el mouse */
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -20,7 +59,7 @@
 
         <section class="services">
             <h3>Servicios para Bodas</h3>
-            <div class="service" data-price="$70.000"> <!-- DJ -->
+            <div class="service" data-price="70000"> <!-- DJ -->
                 <h4>DJ</h4>
                 <p>Servicio de DJ profesional para animar tu evento (70.000 COP por hora).</p>
                 <div class="quantity-selector">
@@ -29,7 +68,7 @@
                     <button class="increase">+</button>
                 </div>
             </div>
-            <div class="service" data-price="$50.000"> <!-- Meseros -->
+            <div class="service" data-price="50000"> <!-- Meseros -->
                 <h4>Meseros</h4>
                 <p>Meseros capacitados para atender a tus invitados (50.000 COP por mesero).</p>
                 <div class="quantity-selector">
@@ -57,45 +96,113 @@
                 </div>
             </div>
         </section>
-
         <div class="total">
-            <h3>Costo Total: <span id="totalCost">$0</span></h3>
-        </div>
-    </main>
-
-    <script src="bodas.js"></script> <!-- Vinculación del JavaScript -->
-
-
-    <table>
-        <tbody>
-          <tr>
-            <td>Cotización</td>
-            <td><button onclick="enviarCorreo('Básico')">Cotizar</button></td>
-          </tr>
-        </tbody>
-      </table>
-    <script>
-        function enviarCorreo(plan) {
-          const destinatario = "tucorreo@ejemplo.com";
-          const asunto = `Servicio de Boda ${plan}`;
-          const cuerpo = `El servicio de Boda estaria con un valor de: * DJ: 2 UNIDADES POR VALOR DE $140.0000 
-          * MESEROS 1 UNIDAD POR VALOR DE $50.000
-          * LUCES 1 UNIDAD POR VALOR DE $1.200.000
-          * MARIACHIS 0
-          PARA UN TOTAL DE $1.390.000
-          
-          
-          Esperamos su Pronta respuesta
-          Coordialmente
-          
-          Eventos.com.`;
-          
-         
-          const mailtoLink = `mailto:${destinatario}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+                <h3>Costo Total: <span id="totalCost">$0</span></h3>
+            </div>
     
-         
-          window.location.href = mailtoLink;
-        }
-      </script>
-</body>
-</html>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <button id="cotizarBtn">Cotizar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                emailjs.init("7_X9ww8SBJlDtsqRU"); // Reemplaza con tu User ID de EmailJS
+        
+                // Función para actualizar el total
+                function updateTotal() {
+                    let totalCost = 0;
+                    document.querySelectorAll('.service').forEach(service => {
+                        const quantity = parseInt(service.querySelector('.quantity').textContent);
+                        const price = parseFloat(service.getAttribute('data-price'));
+                        totalCost += quantity * price;
+                    });
+                    document.getElementById('totalCost').textContent = `$${totalCost.toLocaleString()}`; // Formatear el total
+                }
+        
+                // Agregar eventos a los botones de aumentar y disminuir
+                document.querySelectorAll('.service').forEach(service => {
+                    const quantityDisplay = service.querySelector('.quantity');
+                    let quantity = 0;
+        
+                    service.querySelector('.increase').addEventListener('click', () => {
+                        quantity++;
+                        quantityDisplay.textContent = quantity;
+                        updateTotal();
+                    });
+        
+                    service.querySelector('.decrease').addEventListener('click', () => {
+                        if (quantity > 0) {
+                            quantity--;
+                            quantityDisplay.textContent = quantity;
+                            updateTotal();
+                        }
+                    });
+                });
+        
+                // Mostrar el modal al hacer clic en "Cotizar"
+                document.getElementById('cotizarBtn').addEventListener('click', () => {
+                    document.getElementById('myModal').style.display = "block";
+                });
+        
+                // Cerrar el modal
+                document.getElementById('closeModal').addEventListener('click', () => {
+                    document.getElementById('myModal').style.display = "none";
+                });
+        
+                // Enviar la cotización
+                document.getElementById('sendQuote').addEventListener('click', () => {
+                    const eventDate = document.getElementById('eventDate').value;
+                    const email = document.getElementById('email').value;
+                    const name = document.getElementById('name').value;
+                    const totalCost = document.getElementById('totalCost').textContent.replace('$', '').replace('.', '').replace('.', '');
+        
+                    const body = {
+                        name: name,
+                        email: email,
+                        eventDate: eventDate,
+                        totalCost: totalCost,
+                        services: {
+                            DJ: document.querySelector('.service[data-price="70000"] .quantity').textContent,
+                            Meseros: document.querySelector('.service[data-price="50000"] .quantity').textContent,
+                            Luces: document.querySelector('.service[data-price="1200000"] .quantity').textContent,
+                            Mariachis: document.querySelector('.service[data-price="500000"] .quantity').textContent,
+                        }
+                    };
+        
+                    emailjs.send("service_ad5nwwq", "template_5zpw44n", body)
+                        .then((response) => {
+                            console.log('SUCCESS!', response.status, response.text);
+                            alert('Cotización enviada exitosamente!');
+                        }, (error) => {
+                            console.log('FAILED...', error);
+                            alert('Error al enviar la cotización.');
+                        });
+        
+                    // Cerrar el modal
+                    document.getElementById('myModal').style.display = "none";
+                });
+            });
+        </script>
+    
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span id="closeModal" style="cursor:pointer;">&times;</span>
+                <h2>Datos de Cotización</h2>
+                <label for="eventDate">Fecha de Agendamiento:</label>
+                <input type="date" id="eventDate" required><br><br>
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" required><br><br>
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" required><br><br>
+                <button id="sendQuote">Enviar Cotización</button>
+            </div>
+        </div>
+    </body>
+    </html>
