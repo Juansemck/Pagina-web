@@ -1,14 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 * 
-    .header{
+    .header {
         width: 100vw;
         margin: 0 auto;
         padding: 20px;
         background-color: #ff0000; /* Para que coincida con tu fondo rojo */
         color: white; /* Texto blanco para contraste */
         box-sizing: border-box;
+        text-align: left;
     } 
+
+    .mision-vision-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        margin: 20px 0;
+    }
+    
+    .mision, .vision {
+        flex: 1; /* Ocupan el mismo espacio */
+        padding: 20px;
+        background-color: #f9f9f9; /* Fondo claro */
+        border: 1px solid #ddd; /* Borde sutil */
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    }
+    
+    .mision h2, .vision h2 {
+        color: #a51d29; /* Color destacado */
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    
+    .mision p, .vision p {
+        line-height: 1.6;
+        color: #333;
+        text-align: justify;
+    }
 
     .header-content{
         display: flex;
@@ -37,93 +66,102 @@
         font-size: 1rem;
     }
 
-    
-    .logo{ 
-        width: 100;
-        height: 100px;    
-
+    ul {
+        list-style-position: inside; /* Hace que las viñetas se alineen con el texto */
+        padding-left: 0; /* Quita espacios adicionales */
     }
-
-    p{
-        margin-left: 20px;
-        margin-right: 20px;
-    }   
-
-    .container{
+    
+ .contenedor {
         display: flex;
-    } 
-
-    .logo{ 
-        width: 100px;
-        height: 100px;    
-
+        flex-direction: column;
+        gap: 20px;
+        width: 90%;
+        margin: 0 auto;
+        padding: 20px;
     }
 
-    p{
+    .event-item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .event-item img {
+        width: 300px;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .event-text {
+        flex: 1;
+        text-align: left;
+    }
+
+    .event-text h2 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+
+    .event-text p {
+        font-size: 1rem;
+        margin-bottom: 10px;
+        line-height: 1.6;
+    }
+
+    .event-text ul {
+        list-style-type: disc;
         margin-left: 20px;
-        margin-right: 20px;
-    }   
-
-button{
-    color: #eee;
-    text-align: center
-}
-    
-body {
-    .contenedor {
-        display: grid; /* Activar grid */
-        grid-template-columns: repeat(3, 1fr); /* Tres columnas iguales */
-        gap: 20px; /* Espacio entre las casillas */
-        padding: 20px; /* Espacio alrededor del contenedor */
-        background-color: #eee; /* Fondo del contenedor */
+        margin-bottom: 10px;
     }
 
-        /* Estilo para las casillas */
-        .casilla {
-            border: 2px solid black; /* Borde negro */
-            padding: 15px; /* Espaciado interno */
-            background-color: #f4f4f4; /* Fondo claro */
-            text-align: center; /* Centrar contenido */
-            border-radius: 10px; /* Bordes redondeados */
-        }
+    .button-1 {
+        text-align: right;
+        margin-top: 20px;
+    }
+    .button-1 button {
+        background-color: #ff6f61;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
 
-    background-color:beige;
-    color: black;
-    font-family : "Montserrat";
+    .button-1 button a {
+        color: #fff;
+        text-decoration: none;
+    }
     
+    .button-1 button:hover {
+        background-color: #e6554e;
+    }
+
+
+    .button-2 {
+        text-align: right;
+        margin-top: 20px;
+    }
+    .button-2 button {
+        background-color: #ff6f61;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+
+    .button-2 button a {
+        color: #fff;
+        text-decoration: none;
+    }
     
-    
-}
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.header{
-
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 78vh;
-    align-items: center;
-    display: flex;
-}
-.menu{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 1000;
-
- }
-.logo{
-    color: #000000;
-    font-size: 25px;
-    font-weight: 800;
-
-
-}
+    .button-2 button:hover {
+        background-color: #e6554e;
+    }
