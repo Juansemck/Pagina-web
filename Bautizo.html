@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="bodas.css"> <!-- Vinculación del CSS -->
+    <title>eventos.com - Tu mejor opción para eventos.</title>
+</head>
+<body>
+    <header>
+        <h1>eventos.com</h1>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <h2>Planes Bautizos</h2>
+            <p>"En nuestras fiestas de bautizo, nos encargamos de cuidar cada detalle para que este momento especial sea inolvidable. Diseñamos celebraciones familiares y acogedoras, con una ambientación única que refleje la importancia del evento. Ofrecemos planes todo incluido que incluyen la decoración temática personalizada, deliciosos banquetes para consentir a tus invitados, y un servicio profesional que garantiza una experiencia sin preocupaciones. Déjanos ayudarte a crear un recuerdo lleno de amor, fe y felicidad para este día tan especial.</p>
+        </section>
+
+        <section class="services">
+            <h3>Servicios para Bautizos</h3>
+            <div class="service" data-price="$70.000"> <!-- DJ -->
+                <h4>DJ</h4>
+                <p>Servicio de DJ profesional para animar tu evento (70.000 COP por hora).</p>
+                <div class="quantity-selector">
+                    <button class="decrease">-</button>
+                    <span class="quantity">0</span>
+                    <button class="increase">+</button>
+                </div>
+            </div>
+            <div class="service" data-price="$50.000"> <!-- Meseros -->
+                <h4>Meseros</h4>
+                <p>Meseros capacitados para atender a tus invitados (50.000 COP por mesero).</p>
+                <div class="quantity-selector">
+                    <button class="decrease">-</button>
+                    <span class="quantity">0</span>
+                    <button class="increase">+</button>
+                </div>
+            </div>
+            <div class="service" data-price="1200000"> <!-- Luces -->
+                <h4>Luces</h4>
+                <p>Iluminación especial para crear el ambiente perfecto (1.200.000 COP).</p>
+                <div class="quantity-selector">
+                    <button class="decrease">-</button>
+                    <span class="quantity">0</span>
+                    <button class="increase">+</button>
+                </div>
+            </div>
+            <div class="service" data-price="500000"> <!-- Mariachis -->
+                <h4>Mariachis</h4>
+                <p>Grupo de mariachis para amenizar tu celebración (500.000 COP por hora).</p>
+                <div class="quantity-selector">
+                    <button class="decrease">-</button>
+                    <span class="quantity">0</span>
+                    <button class="increase">+</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="total">
+            <h3>Costo Total: <span id="totalCost">$0</span></h3>
+        </div>
+    </main>
+
+    <script src="bodas.js"></script> <!-- Vinculación del JavaScript -->
+
+
+    <table>
+        <tbody>
+          <tr>
+            <td>Cotización</td>
+            <td><button onclick="enviarCorreo('Básico')">Cotizar</button></td>
+          </tr>
+        </tbody>
+      </table>
+    <script>
+        function enviarCorreo(plan) {
+          const destinatario = "tucorreo@ejemplo.com";
+          const asunto = `Servicio de Boda ${plan}`;
+          const cuerpo = `El servicio de Boda estaria con un valor de: * DJ: 2 UNIDADES POR VALOR DE $140.0000 
+          * MESEROS 1 UNIDAD POR VALOR DE $50.000
+          * LUCES 1 UNIDAD POR VALOR DE $1.200.000
+          * MARIACHIS 0
+          PARA UN TOTAL DE $1.390.000
+          
+          
+          Esperamos su Pronta respuesta
+          Coordialmente
+          
+          Eventos.com.`;
+          
+         
+          const mailtoLink = `mailto:${destinatario}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+    
+         
+          window.location.href = mailtoLink;
+        }
+      </script>
+</body>
+</html>
