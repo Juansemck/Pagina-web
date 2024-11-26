@@ -118,7 +118,7 @@ button{
     }
 
     .button-1 {
-        text-align: center;
+        text-align: right;
         margin-top: 20px;
     }
     .button-1 button {
@@ -137,5 +137,29 @@ button{
     }
     
     .button-1 button:hover {
+        background-color: #e6554e;
+    }
+
+
+    .button-2 {
+        text-align: right;
+        margin-top: 20px;
+    }
+    .button-2 button {
+        background-color: #ff6f61;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+
+    .button-2 button a {
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    .button-2 button:hover {
         background-color: #e6554e;
     }
